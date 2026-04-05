@@ -86,21 +86,18 @@ ul.nav-list li{
  margin-right: 15px;
 }
 
-
-.hero-image{
+.hero-image {
   background-image: url("/assets/GamePhotoCollage.png");
   background-size: cover;
   background-position: center;
   position: relative;
 
-  min-height: 300px;
-  padding: 70px;
+  min-height: 750px;  
+  padding: 0;          
 
   display: flex;
-  align-items: flex-end;
-  align-items: center;    
   justify-content: center;
-
+  align-items: center;
 }
 
 .hero{
@@ -109,14 +106,13 @@ ul.nav-list li{
   color: rgb(0, 0, 0);            
   font-size: 36px;         
   font-family: sans-serif;
-  font-weight: bold;       
-  padding: 20px 30px;      
+  font-weight: bold;
+  text-align: center;       
+  padding: 20px;     
   border-radius: 8px;
   margin-bottom: 20px;    
-  text-align: center;   
+  height: auto; 
 }
-
-
 
 main.container{width:90%;
 margin: 60px auto;
@@ -230,7 +226,8 @@ display: flex;
   font-size: 24px;    
   font-family: Tahoma, sans-serif; 
   margin: 12px 0 6px;
-  font-weight: 700;    
+  font-weight: 700; 
+  border-radius: 15px;   
 }
 
 .card button {
@@ -377,4 +374,79 @@ display: flex;
     margin: 20px auto;
     max-width: 700px;
     border-radius: 10px;
+}
+
+form {
+    border: solid 1px black;
+    width: 410px;
+    box-shadow: 5px 5px 20px 1px rgb(18, 59, 18);
+    background-color:rgba(237, 235, 227, 0.795);
+    margin: 50px auto;
+    padding:30px;
+
+}
+
+
+button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 10px;
+  width: 200px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 5px 5px 20px 1px rgb(0, 0, 0);
+  border-radius: 50px;
+
+}
+
+button:hover {
+  background-color: #0a3004;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  padding-bottom:5px;
+}
+
+input {
+  width: 90%;
+  height: 25px;
+  font-size:20px;
+  box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.417);
+  border: solid 1px;
+}
+
+textarea::placeholder {
+ opacity: 0.3;
+  font-size:20px;
+  color: #000000;
+  padding-left: 20px;
+}
+
+select {
+  width: 95%;
+  height: 35px;
+  font-size: 18px;
+  box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.417);
+  border: solid 1px;
+}
+
+fieldset {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+fieldset label {
+  font-weight: normal;
+  margin-top: 10px;
+  display: block;
 }
