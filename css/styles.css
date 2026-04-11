@@ -450,3 +450,94 @@ fieldset label {
   margin-top: 10px;
   display: block;
 }
+
+/* HAMBURG BUTTON start */
+#nav-toggle {
+  display:none;
+}
+
+.hamburger{
+  display:none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  margin-right: 25px;
+ 
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* X state: when checkbox is checked */
+
+#nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    opacity: 0;
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(4) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+/* media query-moblie(max-width 768)
+max-width mean make use of this query up until its width*/
+
+@media (max-width: 768px) {
+ 
+    .hamburger {
+        display: flex;
+    }
+ 
+    /* Hide nav by default on mobile */
+    nav {
+        display: none;
+        width: 100%;
+    }
+ 
+    /* Show nav when checkbox is checked */
+    #nav-toggle:checked ~ nav {
+        display: block;
+    }
+ 
+    /* Stack header items */
+    .header-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+ 
+    /* Nav takes full width below logo/hamburger row */
+    nav {
+        flex-basis: 100%;
+    }
+ 
+    /* Stack nav links vertically */
+    ul.nav-list {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+ 
+    ul.nav-list li {
+        margin-right: 0;
+    }
+ 
+    ul.nav-list li a {
+        display: block;
+        padding: 10px 20px;
+    }
+}
+
+/* HAMBURG BUTTON end */
