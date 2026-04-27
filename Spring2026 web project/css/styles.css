@@ -1,0 +1,543 @@
+*
+{list-style: none;
+margin: 8;}
+
+body {font-family:sans-serif serif;
+background-color: rgb(248, 248, 248);}
+
+.logo {
+  color: white;
+  text-decoration: none;  
+  text-transform: uppercase; 
+  font-family:sans-serif;
+  font-weight: 100;       
+  font-size: 20px;
+  margin-left: 0;          
+  margin-top: 0;           
+}
+
+.header-container {
+
+position:fixed;
+
+width:100%;
+
+background-color:rgb(0, 0, 0);
+
+margin-top:-25px;
+
+padding-top:25px;
+
+z-index: 99;
+
+top: 0;
+
+box-shadow: 10px 10px 10px rgb(0, 0, 0);
+
+display:flex;
+
+justify-content: space-between;
+
+display: flex;
+
+align-items: center; 
+
+height: 70px; 
+}
+
+ul.nav-list{
+border: 0px solid rgb(23, 135, 47);
+display: flex; 
+padding:20px;
+background-color:rgb(0, 0, 0);
+padding: 10px 15px;
+}
+
+ul.nav-list li{ 
+margin-right: 20px;
+border: 0px solid rgb(135, 92, 23);
+list-style-type: none;  
+color: rgb(251, 251, 251)
+}
+
+
+
+ul.nav-list li a:hover{
+
+background-color:rgb(85, 75, 75);
+}
+
+ul.nav-list li a{
+    padding:12px;
+    color: white;
+    font-size: 16px;
+    padding:20px;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+ul.nav-list li{
+ background-color: rgb(0, 0, 0);
+ font-family:Tahmas; 
+ padding-bottom: 5px; 
+ font-size: 14px; 
+ text-decoration: none;
+ border: 1px solid rgb(242, 244, 242);
+ margin-right: 15px;
+}
+
+.hero-image {
+  background-image: url("/assets/GamePhotoCollage.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  min-height: 750px;  
+  padding: 0;          
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero{
+  position: relative;
+  z-index: 2;              
+  color: rgb(0, 0, 0);            
+  font-size: 36px;         
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;       
+  padding: 20px;     
+  border-radius: 8px;
+  margin-bottom: 20px;    
+  height: auto; 
+}
+
+main.container{width:90%;
+margin: 60px auto;
+border: 1px  rgb(18, 16, 16);
+}
+
+h1,h2,h3,h4,h5,h6{color:rgb(0, 0, 0); 
+font-family:sans-serif;
+border: 1px rgb(241, 240, 236);
+padding: 1px;
+}
+
+p {line-height: 1.4; 
+    font-size: 20px;
+    border: 1px  gold;
+}
+
+ul li {background-color: rgb(2, 2, 2);
+border: 1px solid rgb(19, 19, 19);
+padding: 5px 15px;
+}
+ul li {padding-bottom: 5px;
+border: 1px solid rgb(164, 153, 92);
+padding: 5px 15px;
+}
+
+ol {background-color: rgb(4, 4, 4);
+border: 1px soild rgb(5, 5, 5);
+padding: 5px;
+}
+
+.top5-list-a 
+{ background-color: rgb(74, 73, 73);
+ 
+    padding: 15px; 
+    width: 300px; 
+    border-radius: 10px; 
+    font-family: "Courier New", monospace; 
+} 
+.top5-list-a li { 
+    margin-bottom: 8px; 
+} 
+.top5-list-a a { 
+    color: white;
+    text-decoration:none; 
+    font-weight: bold; 
+}
+
+.top5-list-b { 
+    background-color:rgb(74, 73, 73);
+;
+    padding: 15px; 
+    width: 300px; 
+    border-radius: 10px; 
+    font-family: "Courier New", monospace;
+}
+.top5-list-b li { 
+    margin-bottom: 10px; 
+    color:rgb(255, 255, 255);
+    border-color: white;
+}
+.top5-list-b a { 
+    color: white;
+    text-decoration:none; 
+    font-size: 20px;
+}
+
+main.container {padding-bottom: 5px;margin:0 auto; padding: 20px;}
+
+.flex-demo {
+display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 30px;
+
+  padding: 10px;
+
+  align-items: flex-start;
+
+}
+
+.flex-demo .card{
+
+  background: rgb(74, 73, 73);
+
+  border: 2px  rgb(254, 254, 254);
+
+  color: rgb(255, 255, 255);
+
+  flex: 0 0 250px;   
+  flex-grow: 0;
+  flex-shrink:0;
+  flex-basis: 25%;
+  box-sizing: border-box;
+
+  padding:15px;
+
+}
+
+.card img {
+  width: 100%;         
+  height: 200px;       
+  object-fit: cover;   
+  border-radius: 8px;  
+}
+
+
+.card h4 {
+  color: white;        
+  font-size: 24px;    
+  font-family: Tahoma, sans-serif; 
+  margin: 12px 0 6px;
+  font-weight: 700; 
+  border-radius: 15px;   
+}
+
+.card button {
+
+ margin-top: auto;
+
+ padding: 10px 12px;
+
+ border: 0;
+
+ border-radius: 8px;
+
+ cursor: pointer;
+
+ font-family: Georgia, serif;
+
+}
+
+.grid-demo{
+
+ display: grid;
+
+ grid-template-columns: 1fr 1fr 1fr;
+
+ gap: 20px;
+ 
+  
+}
+
+.grid-demo .card {
+  background: rgb(60, 60, 60);
+  border: 2px solid rgb(221, 230, 221);
+  color: white;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 8px;  
+  overflow: hidden;    
+}
+
+.grid-demo .card{
+
+  background: rgb(60, 60, 60);
+
+  border: 2px  rgb(221, 230, 221);
+
+  color: white;
+
+  box-sizing: border-box;
+
+  padding:15px;
+  
+  
+}
+
+
+
+.hero-contactimage {
+    background-image: url("/assets/ContactPage.png") !important;
+    padding: 60px;
+    background-size: cover;
+  background-position: center;
+  color: rgb(0, 0, 0);
+  position: relative;
+
+  min-height: 300px;
+  padding: 70px;
+ 
+ 
+  display: flex;
+  align-items: flex-end;   /* vertical bottom */
+}
+
+.ittakestwo-hero {
+    background-image: url("/assets/it-takes-twoCover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.SplitFiction-hero {
+    background-image: url("/assets/SplitFictionCover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.OverCooked2-hero {
+    background-image: url("/assets/OverCooked2Cover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.AsDuskFalls-hero {
+    background-image: url("/assets/as-dusk-falls.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.REANIMAL-hero {
+    background-image: url("/assets/REANIMALCover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.AWAYOUT-hero {
+    background-image: url("/assets/AwayOutCover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.ittakestwo-page video,
+.ittakestwo-page iframe {
+    display: block;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.SplitFiction-page video,
+.SplitFiction-page iframe{
+    display: block;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.AsDuskFalls-page video,
+.AsDuskFalls-page iframe{
+    display: block;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.REANIMAL-page video,
+.REANIMAL-page iframe{
+    display: block;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.AWAYOUT-page video,
+.AsDuskFalls-page iframe{
+    display: block;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+form {
+    border: solid 1px black;
+    width: 410px;
+    box-shadow: 5px 5px 20px 1px rgb(18, 59, 18);
+    background-color:rgba(237, 235, 227, 0.795);
+    margin: 50px auto;
+    padding:30px;
+
+}
+
+
+button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 10px;
+  width: 200px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 5px 5px 20px 1px rgb(0, 0, 0);
+  border-radius: 50px;
+
+}
+
+button:hover {
+  background-color: #0a3004;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  padding-bottom:5px;
+}
+
+input {
+  width: 90%;
+  height: 25px;
+  font-size:20px;
+  box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.417);
+  border: solid 1px;
+}
+
+textarea::placeholder {
+ opacity: 0.3;
+  font-size:20px;
+  color: #000000;
+  padding-left: 20px;
+}
+
+select {
+  width: 95%;
+  height: 35px;
+  font-size: 18px;
+  box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.417);
+  border: solid 1px;
+}
+
+fieldset {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+fieldset label {
+  font-weight: normal;
+  margin-top: 10px;
+  display: block;
+}
+
+/* HAMBURG BUTTON start */
+#nav-toggle {
+  display:none;
+}
+
+.hamburger{
+  display:none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  margin-right: 25px;
+ 
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* X state: when checkbox is checked */
+
+#nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    opacity: 0;
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(4) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+/* media query-moblie(max-width 768)
+max-width mean make use of this query up until its width*/
+
+@media (max-width: 768px) {
+ 
+    .hamburger {
+        display: flex;
+    }
+ 
+    /* Hide nav by default on mobile */
+    nav {
+        display: none;
+        width: 100%;
+    }
+ 
+    /* Show nav when checkbox is checked */
+    #nav-toggle:checked ~ nav {
+        display: block;
+    }
+ 
+    /* Stack header items */
+    .header-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+ 
+    /* Nav takes full width below logo/hamburger row */
+    nav {
+        flex-basis: 100%;
+    }
+ 
+    /* Stack nav links vertically */
+    ul.nav-list {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+ 
+    ul.nav-list li {
+        margin-right: 0;
+    }
+ 
+    ul.nav-list li a {
+        display: block;
+        padding: 10px 20px;
+    }
+}
+
+/* HAMBURG BUTTON end */

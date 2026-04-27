@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Contact</title>
+
+<link rel="stylesheet" href="css/styles.css" />
+<script src="js/includes.js" defer></script>
+</head>
+
+<body class="contact-page">
+
+    <header id="site-header" class="site-header"></header>
+
+    <section class="hero-contactimage">
+        <h1></h1>
+    </section>
+   <form action="https://formspree.io/f/mdapzyln" method="post" id="contact-form">
+
+
+    <label for="best-time">Best time to reach me</label>
+    <select name="best-time" id="best-time">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="evening">Evening</option>
+    </select>
+
+    <fieldset>
+        <legend>Best way to reach me</legend>
+
+        <label>
+            <input type="radio" name="contact-way" value="email">
+            Email
+        </label>
+
+        <label>
+            <input type="radio" name="contact-way" value="phone">
+            Phone
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Let me know about...</legend>
+
+        <label>
+            <input type="checkbox" name="updates" value="new-games">
+            New games
+        </label>
+
+        <label>
+            <input type="checkbox" name="updates" value="website-updates">
+            Website updates
+        </label>
+
+        <label>
+            <input type="checkbox" name="updates" value="events">
+            Events or announcements
+        </label>
+    </fieldset>
+
+    <label for="first-name">First name</label>
+    <input type="text" id="first-name" name="first-name" placeholder="First name">
+
+    <label for="last-name">Last name</label>
+    <input type="text" id="last-name" name="last-name" placeholder="Last name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email">
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" placeholder="123-446-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="8" cols="60" placeholder="Type your message here"></textarea>
+
+    <button type="submit">Submit</button>
+
+</form>
+<footer id="site-footer" class="site-footer"> 
+
+
+</body>
+</html>
