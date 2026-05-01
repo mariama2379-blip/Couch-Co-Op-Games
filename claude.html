@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upcoming Games 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --card: #16161f;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --ink: #eeeaf5;
+      --muted: rgba(238,234,245,0.45);
+      --accent: #a78bfa;
+      --accent-glow: rgba(167,139,250,0.15);
+      --accent-dim: rgba(167,139,250,0.08);
+      --green: #34d399;
+      --amber: #fbbf24;
+      --coral: #f87171;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .logo em { font-style: normal; color: var(--accent); }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 0.5px solid rgba(167,139,250,0.25);
+      border-radius: 20px;
+      padding: 6px 14px 6px 10px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+      flex-shrink: 0;
+    }
+    .nav-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.1px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    /* ─── STATS ROW ─── */
+    .stats {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .stat {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      flex: 1;
+      min-width: 130px;
+    }
+    .stat-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; letter-spacing: 0.3px; }
+    .stat-value { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); }
+
+    /* ─── GAME LIST ─── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 24px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section-line { flex: 1; height: 0.5px; background: var(--border); }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    .game-card {
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.18s, background 0.18s;
+      cursor: default;
+    }
+    .game-card:hover {
+      border-color: var(--border-hover);
+      background: var(--surface);
+    }
+
+    .game-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .game-info { flex: 1; min-width: 0; }
+    .game-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .game-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .game-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+    .badge-date { background: rgba(167,139,250,0.12); color: var(--accent); border: 0.5px solid rgba(167,139,250,0.2); }
+    .badge-platform { background: rgba(255,255,255,0.05); color: var(--muted); border: 0.5px solid var(--border); }
+    .badge-hot { background: rgba(248,113,113,0.12); color: var(--coral); border: 0.5px solid rgba(248,113,113,0.2); }
+    .badge-rating-m { background: rgba(248,113,113,0.15); color: #fca5a5; border: 0.5px solid rgba(248,113,113,0.3); font-weight: 700; letter-spacing: 0.5px; }
+    .badge-rating-t { background: rgba(251,191,36,0.15); color: #fcd34d; border: 0.5px solid rgba(251,191,36,0.3); font-weight: 700; letter-spacing: 0.5px; }
+    .badge-rating-rp { background: rgba(255,255,255,0.07); color: var(--muted); border: 0.5px solid var(--border); font-style: italic; }
+    .content-warnings { margin-top: 8px; font-size: 10px; color: var(--muted); line-height: 1.5; border-top: 0.5px solid rgba(255,255,255,0.05); padding-top: 8px; }
+    .content-warnings span { font-weight: 500; color: rgba(238,234,245,0.6); }
+    .badge-out-now { background: rgba(52,211,153,0.12); color: #6ee7b7; border: 0.5px solid rgba(52,211,153,0.25); }
+    .badge-later { background: rgba(167,139,250,0.1); color: var(--accent); border: 0.5px solid rgba(167,139,250,0.2); }
+
+    /* ─── TIME BLOCK ─── */
+    .time-block { margin-bottom: 32px; }
+    .time-block:last-child { margin-bottom: 0; }
+    .time-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding-left: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .time-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(255,255,255,0.04); }
+    .time-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .dot-green { background: #34d399; box-shadow: 0 0 5px rgba(52,211,153,0.5); }
+    .dot-purple { background: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">level<em>up</em></a>
+    <nav class="nav-pill" aria-label="Main navigation">
+      <div class="dot"></div>
+      <span class="nav-label">Upcoming 2026</span>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <p class="hero-eyebrow">Release calendar</p>
+  <h1 class="hero-title">Upcoming games<br>of 2026</h1>
+  <p class="hero-sub">The biggest titles dropping this year — from blockbuster sequels to long-awaited debuts. Stay ahead of every launch.</p>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-label">Featured titles</div>
+    <div class="stat-value">13</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Months remaining</div>
+    <div class="stat-value">8</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Platforms covered</div>
+    <div class="stat-value">5</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Most hyped</div>
+    <div class="stat-value">GTA 6</div>
+  </div>
+</div>
+
+<!-- ═══ SURVIVAL HORROR ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-title">🩸 Survival horror</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-green"></span>Out now / coming soon</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🧟</div>
+        <div class="game-info">
+          <div class="game-name">Resident Evil Requiem</div>
+          <div class="game-desc">The next chapter in Capcom's survival horror saga — a terrifying return to form.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Feb 2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-m">M 17+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language</div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(248,113,113,0.08);">👾</div>
+        <div class="game-info">
+          <div class="game-name">Directive 8020</div>
+          <div class="game-desc">Supermassive's sci-fi survival horror — a colony ship crashes on an alien world, hunted by a shapeshifting organism that mimics the crew.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Coming soon</span>
+            <span class="badge badge-date">May 12, 2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-m">M 17+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language · In-Game Purchases · Users Interact</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACTION / ACTION-RPG ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">⚔️ Action / action-RPG</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-green"></span>Out now / coming soon</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(52,211,153,0.1);">⚔️</div>
+        <div class="game-info">
+          <div class="game-name">Nioh 3</div>
+          <div class="game-desc">Team Ninja's brutal samurai action-RPG returns with darker mythology and deeper combat.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Feb 2026</span>
+            <span class="badge badge-platform">PS5 · PC</span>
+            <span class="badge badge-rating-m">M 17+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Partial Nudity · Strong Language</div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🔮</div>
+        <div class="game-info">
+          <div class="game-name">Pragmata</div>
+          <div class="game-desc">Capcom's atmospheric sci-fi action game — a girl, an astronaut, and a mysterious moon.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Apr 16, 2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-t">T 13+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Language · Violence · In-Game Purchases</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-purple"></span>Later in 2026</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🐺</div>
+        <div class="game-info">
+          <div class="game-name">Marvel's Wolverine</div>
+          <div class="game-desc">Insomniac's brutal take on Logan — the first major Wolverine game in over a decade.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">Sep 15, 2026</span>
+            <span class="badge badge-platform">PS5</span>
+            <span class="badge badge-hot">🔥 Most anticipated</span>
+            <span class="badge badge-rating-m">M 17+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language</div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🦴</div>
+        <div class="game-info">
+          <div class="game-name">Phantom Blade 0</div>
+          <div class="game-desc">S-GAME's jaw-dropping wuxia action game with breathtaking combat finally arrives.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">Sep 9, 2026</span>
+            <span class="badge badge-platform">PS5 · PC</span>
+            <span class="badge badge-rating-rp">Rating Pending</span>
+          </div>
+          <div class="content-warnings"><span>Expected content:</span> Intense Violence · Blood · Strong Language</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SHOOTER ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">🎯 Shooter</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-green"></span>Out now / coming soon</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(251,191,36,0.1);">🏃</div>
+        <div class="game-info">
+          <div class="game-name">Marathon</div>
+          <div class="game-desc">Bungie's extraction shooter revival — a bold new take on the classic sci-fi universe.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Mar 2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-t">T 13+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Violence · Mild Language · Users Interact · In-Game Purchases</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-purple"></span>Later in 2026</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(251,191,36,0.1);">✈️</div>
+        <div class="game-info">
+          <div class="game-name">Ace Combat 8</div>
+          <div class="game-desc">Bandai Namco's beloved aerial combat series soars back with next-gen dogfights.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-t">T 13+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Mild Language · Violence</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OPEN WORLD / ACTION-ADVENTURE ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">🌆 Open world / action-adventure</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-purple"></span>Later in 2026</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(251,191,36,0.1);">🌆</div>
+        <div class="game-info">
+          <div class="game-name">Grand Theft Auto 6</div>
+          <div class="game-desc">Rockstar's record-breaking open world returns to Vice City with a landmark new story.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">Nov 19, 2026</span>
+            <span class="badge badge-platform">PS5 · Xbox</span>
+            <span class="badge badge-hot">🔥 Most hyped</span>
+            <span class="badge badge-rating-m">M 17+</span>
+          </div>
+          <div class="content-warnings"><span>Expected content:</span> Blood and Gore · Intense Violence · Nudity · Strong Language · Strong Sexual Content · Drug and Alcohol Use</div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🕵️</div>
+        <div class="game-info">
+          <div class="game-name">007: First Light</div>
+          <div class="game-desc">IO Interactive's Bond game — a fresh origin story from the makers of Hitman.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">2026</span>
+            <span class="badge badge-platform">PS5 · Xbox · PC</span>
+            <span class="badge badge-rating-rp">Rating Pending</span>
+          </div>
+          <div class="content-warnings"><span>Expected content:</span> Violence · Strong Language · Suggestive Themes</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RPG ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">🐉 RPG</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-green"></span>Out now / coming soon</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(52,211,153,0.1);">🐉</div>
+        <div class="game-info">
+          <div class="game-name">Monster Hunter Stories 3</div>
+          <div class="game-desc">Capcom's charming RPG spin-off returns with new monsters, bonds, and adventures.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Mar 2026</span>
+            <span class="badge badge-platform">Switch 2 · PS5 · PC</span>
+            <span class="badge badge-rating-t">T 13+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Fantasy Violence · Mild Language · In-Game Purchases</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LIFE SIM ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">🌿 Life sim</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-green"></span>Out now / coming soon</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🌿</div>
+        <div class="game-info">
+          <div class="game-name">Tomodachi Life: Living the Dream</div>
+          <div class="game-desc">Nintendo's beloved life sim finally gets a long-awaited sequel on Switch 2.</div>
+          <div class="game-meta">
+            <span class="badge badge-out-now">✦ Out now</span>
+            <span class="badge badge-date">Apr 2026</span>
+            <span class="badge badge-platform">Switch 2</span>
+            <span class="badge badge-rating-t">E10+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Comic Mischief · Mild Cartoon Violence · Users Interact</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RACING ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">🚗 Racing</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label"><span class="time-dot dot-purple"></span>Later in 2026</div>
+    <div class="game-grid">
+
+      <div class="game-card">
+        <div class="game-icon" style="background:rgba(52,211,153,0.1);">🚗</div>
+        <div class="game-info">
+          <div class="game-name">Forza Horizon 6</div>
+          <div class="game-desc">Playground Games takes the open-world racer to a stunning new location.</div>
+          <div class="game-meta">
+            <span class="badge badge-later">Later 2026</span>
+            <span class="badge badge-date">2026</span>
+            <span class="badge badge-platform">Xbox · PC</span>
+            <span class="badge badge-rating-t">E 3+</span>
+          </div>
+          <div class="content-warnings"><span>Content:</span> Mild Lyrics · In-Game Purchases · Users Interact</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  Release dates subject to change. Sources: VGC, Dexerto, PC Gamer &mdash; updated April 2026.
+</footer>
+
+</body>
+</html>

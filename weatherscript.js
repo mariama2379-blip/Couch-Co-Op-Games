@@ -44,11 +44,11 @@ fetch(apiUrl)
       const uvIndex = document.createElement("p");
       uvIndex.textContent = "UV code: " + uvCodes[i];
 
-      maxTemp.textContent = "Temp High: " + maxTemps[i] + "°F";
+      maxTemp.textContent = "Temp High: " + maxTemps[i] + "°C";
 
       const minTemp = document.createElement("p");
 
-      minTemp.textContent = "Temp Low: " + minTemps[i] + "°F";
+      minTemp.textContent = "Temp Low: " + minTemps[i] + "°C";
 
       const maxWind = document.createElement("p");
 

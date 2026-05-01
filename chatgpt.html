@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Header Menu</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Header */
+  header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /* Nav */
+  nav {
+    display: flex;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    display: block;
+  }
+
+  nav a:hover {
+    background: #555;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MySite</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav id="navMenu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+  }
+</script>
+
+</body>
+</html>

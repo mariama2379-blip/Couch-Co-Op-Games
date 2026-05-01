@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* Header Wrapper */
+  .header {
+    background-color: #2d3436;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    position: relative;
+    color: white;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00cec9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Navigation Desktop */
+  .nav-menu {
+    display: flex;
+    list-style: none;
+  }
+
+  .nav-link {
+    padding: 10px 20px;
+    color: #dfe6e9;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 500;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: #00cec9;
+  }
+
+  /* Hide Checkbox and Hamburger by default */
+  #menu-toggle { display: none; }
+  .hamburger { display: none; cursor: pointer; font-size: 2rem; }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-menu {
+      display: none; /* Hide menu items */
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #2d3436;
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #3d4446;
+    }
+
+    /* When checkbox is checked, show the menu */
+    #menu-toggle:checked ~ .nav-menu {
+      display: flex;
+    }
+
+    .nav-item {
+      padding: 15px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">BRAND</div>
+
+    <!-- The Hidden Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- The Hamburger Icon (Label for checkbox) -->
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+      <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+</body>
+</html>
