@@ -540,4 +540,26 @@ max-width mean make use of this query up until its width*/
     }
 }
 
+/* Responsive tweaks for rubric “Mobile layout” */
+@media (max-width: 768px) {
+  main.container {
+    width: 95%;
+    margin: 80px auto 20px;
+  }
+
+  .grid-demo {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  ul.nav-list li a {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+}
+
 /* HAMBURG BUTTON end */

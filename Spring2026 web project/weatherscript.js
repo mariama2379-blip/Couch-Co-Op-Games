@@ -78,20 +78,20 @@ if (weatherCodes[i] >= 0 && weatherCodes[i] <= 1) {
 }
 
 /*wind speed logic*/
-let windImageFile = "assets/light.jpg";
+let windImageFile = "/assets/light.jpg";
 
 if (maxWinds[i] < 10) {
-    windImageFile = "assets/light.jpg";
+    windImageFile = "/assets/light.jpg";
 
 } else if (maxWinds[i] < 20) {
-    windImageFile = "assets/moderate.jpg";
+    windImageFile = "/assets/moderate.jpg";
 
 } else if (maxWinds[i] < 40) {
-    windImageFile = "assets/verystrong.jpg";
+    windImageFile = "/assets/verystrong.jpg";
 }
 
 else {
-    windImageFile = "assets/light.jpg";
+    windImageFile = "/assets/light.jpg";
 }
 
 
@@ -147,6 +147,3 @@ windIcon.classList.add("wind-icon");
     weekday: "long"
   });
 }
-
-
-
