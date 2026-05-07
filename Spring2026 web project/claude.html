@@ -257,6 +257,105 @@
     .dot-green { background: #34d399; box-shadow: 0 0 5px rgba(52,211,153,0.5); }
     .dot-purple { background: var(--accent); }
 
+
+    /* ─── TRAILER THUMBNAIL ─── */
+    .trailer-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 12px;
+      background: #000;
+      flex-shrink: 0;
+    }
+    .trailer-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .trailer-thumb:hover img { opacity: 0.75; }
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .play-btn svg {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+      transition: transform 0.18s;
+    }
+    .trailer-thumb:hover .play-btn svg { transform: scale(1.12); }
+    .trailer-label {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      background: rgba(0,0,0,0.55);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* ─── GAME CARD WITH TRAILER ─── */
+    .game-card { flex-direction: column; }
+    .card-top { display: flex; gap: 16px; align-items: flex-start; }
+    .card-top .game-icon { flex-shrink: 0; }
+    .card-top .game-info { flex: 1; min-width: 0; }
+
+    /* ─── MODAL ─── */
+    #trailer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #trailer-modal.open { display: flex; }
+    .modal-inner {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+    }
+    .modal-close {
+      position: absolute;
+      top: -38px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    .modal-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       border-top: 0.5px solid var(--border);
@@ -319,7 +418,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🧟</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(167,139,250,0.12);">🧟</div>
         <div class="game-info">
           <div class="game-name">Resident Evil Requiem</div>
           <div class="game-desc">The next chapter in Capcom's survival horror saga — a terrifying return to form.</div>
@@ -329,12 +428,23 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-m">M 17+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language</div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('9lrThxCoznw')" role="button" tabindex="0" aria-label="Watch Launch Trailer">
+        <img src="https://img.youtube.com/vi/9lrThxCoznw/mqdefault.jpg" alt="Launch Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Launch Trailer</span>
+      </div>
+    </div>
       </div>
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(248,113,113,0.08);">👾</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(248,113,113,0.08);">👾</div>
         <div class="game-info">
           <div class="game-name">Directive 8020</div>
           <div class="game-desc">Supermassive's sci-fi survival horror — a colony ship crashes on an alien world, hunted by a shapeshifting organism that mimics the crew.</div>
@@ -344,8 +454,19 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-m">M 17+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language · In-Game Purchases · Users Interact</div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language · In-Game Purchases · Users Interact
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('2zdsBjb8tPk')" role="button" tabindex="0" aria-label="Watch Overview Trailer">
+        <img src="https://img.youtube.com/vi/2zdsBjb8tPk/mqdefault.jpg" alt="Overview Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Overview Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -364,7 +485,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(52,211,153,0.1);">⚔️</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(52,211,153,0.1);">⚔️</div>
         <div class="game-info">
           <div class="game-name">Nioh 3</div>
           <div class="game-desc">Team Ninja's brutal samurai action-RPG returns with darker mythology and deeper combat.</div>
@@ -374,12 +495,23 @@
             <span class="badge badge-platform">PS5 · PC</span>
             <span class="badge badge-rating-m">M 17+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Partial Nudity · Strong Language</div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Partial Nudity · Strong Language
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('30C75tjO3ms')" role="button" tabindex="0" aria-label="Watch Launch Trailer">
+        <img src="https://img.youtube.com/vi/30C75tjO3ms/mqdefault.jpg" alt="Launch Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Launch Trailer</span>
+      </div>
+    </div>
       </div>
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🔮</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(248,113,113,0.1);">🔮</div>
         <div class="game-info">
           <div class="game-name">Pragmata</div>
           <div class="game-desc">Capcom's atmospheric sci-fi action game — a girl, an astronaut, and a mysterious moon.</div>
@@ -389,8 +521,19 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-t">T 13+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Language · Violence · In-Game Purchases</div>
+          <div class="content-warnings"><span>Content:</span> Language · Violence · In-Game Purchases
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('8BaMWajtOhw')" role="button" tabindex="0" aria-label="Watch Overview Trailer">
+        <img src="https://img.youtube.com/vi/8BaMWajtOhw/mqdefault.jpg" alt="Overview Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Overview Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -401,7 +544,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🐺</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(248,113,113,0.1);">🐺</div>
         <div class="game-info">
           <div class="game-name">Marvel's Wolverine</div>
           <div class="game-desc">Insomniac's brutal take on Logan — the first major Wolverine game in over a decade.</div>
@@ -412,12 +555,23 @@
             <span class="badge badge-hot">🔥 Most anticipated</span>
             <span class="badge badge-rating-m">M 17+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language</div>
+          <div class="content-warnings"><span>Content:</span> Blood and Gore · Intense Violence · Strong Language
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('s3pDMUWlA6I')" role="button" tabindex="0" aria-label="Watch Gameplay Trailer">
+        <img src="https://img.youtube.com/vi/s3pDMUWlA6I/mqdefault.jpg" alt="Gameplay Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Gameplay Trailer</span>
+      </div>
+    </div>
       </div>
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(248,113,113,0.1);">🦴</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(248,113,113,0.1);">🦴</div>
         <div class="game-info">
           <div class="game-name">Phantom Blade 0</div>
           <div class="game-desc">S-GAME's jaw-dropping wuxia action game with breathtaking combat finally arrives.</div>
@@ -427,8 +581,19 @@
             <span class="badge badge-platform">PS5 · PC</span>
             <span class="badge badge-rating-rp">Rating Pending</span>
           </div>
-          <div class="content-warnings"><span>Expected content:</span> Intense Violence · Blood · Strong Language</div>
+          <div class="content-warnings"><span>Expected content:</span> Intense Violence · Blood · Strong Language
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('ayGk_auu5tk')" role="button" tabindex="0" aria-label="Watch Release Date Trailer">
+        <img src="https://img.youtube.com/vi/ayGk_auu5tk/mqdefault.jpg" alt="Release Date Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Release Date Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -447,7 +612,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(251,191,36,0.1);">🏃</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(251,191,36,0.1);">🏃</div>
         <div class="game-info">
           <div class="game-name">Marathon</div>
           <div class="game-desc">Bungie's extraction shooter revival — a bold new take on the classic sci-fi universe.</div>
@@ -457,8 +622,19 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-t">T 13+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Violence · Mild Language · Users Interact · In-Game Purchases</div>
+          <div class="content-warnings"><span>Content:</span> Violence · Mild Language · Users Interact · In-Game Purchases
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('KF24WS4MMC0')" role="button" tabindex="0" aria-label="Watch Launch Cinematic">
+        <img src="https://img.youtube.com/vi/KF24WS4MMC0/mqdefault.jpg" alt="Launch Cinematic thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Launch Cinematic</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -469,7 +645,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(251,191,36,0.1);">✈️</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(251,191,36,0.1);">✈️</div>
         <div class="game-info">
           <div class="game-name">Ace Combat 8</div>
           <div class="game-desc">Bandai Namco's beloved aerial combat series soars back with next-gen dogfights.</div>
@@ -479,8 +655,19 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-t">T 13+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Mild Language · Violence</div>
+          <div class="content-warnings"><span>Content:</span> Mild Language · Violence
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('HftzKhP1M0A')" role="button" tabindex="0" aria-label="Watch Announcement Trailer">
+        <img src="https://img.youtube.com/vi/HftzKhP1M0A/mqdefault.jpg" alt="Announcement Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Announcement Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -499,7 +686,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(251,191,36,0.1);">🌆</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(251,191,36,0.1);">🌆</div>
         <div class="game-info">
           <div class="game-name">Grand Theft Auto 6</div>
           <div class="game-desc">Rockstar's record-breaking open world returns to Vice City with a landmark new story.</div>
@@ -510,12 +697,23 @@
             <span class="badge badge-hot">🔥 Most hyped</span>
             <span class="badge badge-rating-m">M 17+</span>
           </div>
-          <div class="content-warnings"><span>Expected content:</span> Blood and Gore · Intense Violence · Nudity · Strong Language · Strong Sexual Content · Drug and Alcohol Use</div>
+          <div class="content-warnings"><span>Expected content:</span> Blood and Gore · Intense Violence · Nudity · Strong Language · Strong Sexual Content · Drug and Alcohol Use
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('QdBZY2fkU-0')" role="button" tabindex="0" aria-label="Watch Official Trailer #1">
+        <img src="https://img.youtube.com/vi/QdBZY2fkU-0/mqdefault.jpg" alt="Official Trailer #1 thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Official Trailer #1</span>
+      </div>
+    </div>
       </div>
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🕵️</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(167,139,250,0.12);">🕵️</div>
         <div class="game-info">
           <div class="game-name">007: First Light</div>
           <div class="game-desc">IO Interactive's Bond game — a fresh origin story from the makers of Hitman.</div>
@@ -525,8 +723,19 @@
             <span class="badge badge-platform">PS5 · Xbox · PC</span>
             <span class="badge badge-rating-rp">Rating Pending</span>
           </div>
-          <div class="content-warnings"><span>Expected content:</span> Violence · Strong Language · Suggestive Themes</div>
+          <div class="content-warnings"><span>Expected content:</span> Violence · Strong Language · Suggestive Themes
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('i-fgtpwEMPM')" role="button" tabindex="0" aria-label="Watch Announcement Trailer">
+        <img src="https://img.youtube.com/vi/i-fgtpwEMPM/mqdefault.jpg" alt="Announcement Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Announcement Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -545,7 +754,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(52,211,153,0.1);">🐉</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(52,211,153,0.1);">🐉</div>
         <div class="game-info">
           <div class="game-name">Monster Hunter Stories 3</div>
           <div class="game-desc">Capcom's charming RPG spin-off returns with new monsters, bonds, and adventures.</div>
@@ -555,8 +764,19 @@
             <span class="badge badge-platform">Switch 2 · PS5 · PC</span>
             <span class="badge badge-rating-t">T 13+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Fantasy Violence · Mild Language · In-Game Purchases</div>
+          <div class="content-warnings"><span>Content:</span> Fantasy Violence · Mild Language · In-Game Purchases
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('4F6OBMs9YRg')" role="button" tabindex="0" aria-label="Watch Launch Trailer">
+        <img src="https://img.youtube.com/vi/4F6OBMs9YRg/mqdefault.jpg" alt="Launch Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Launch Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -575,7 +795,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(167,139,250,0.12);">🌿</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(167,139,250,0.12);">🌿</div>
         <div class="game-info">
           <div class="game-name">Tomodachi Life: Living the Dream</div>
           <div class="game-desc">Nintendo's beloved life sim finally gets a long-awaited sequel on Switch 2.</div>
@@ -585,8 +805,19 @@
             <span class="badge badge-platform">Switch 2</span>
             <span class="badge badge-rating-t">E10+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Comic Mischief · Mild Cartoon Violence · Users Interact</div>
+          <div class="content-warnings"><span>Content:</span> Comic Mischief · Mild Cartoon Violence · Users Interact
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('_xY0XuGOWJs')" role="button" tabindex="0" aria-label="Watch Overview Trailer">
+        <img src="https://img.youtube.com/vi/_xY0XuGOWJs/mqdefault.jpg" alt="Overview Trailer thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Overview Trailer</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -605,7 +836,7 @@
     <div class="game-grid">
 
       <div class="game-card">
-        <div class="game-icon" style="background:rgba(52,211,153,0.1);">🚗</div>
+      <div class="card-top"><div class="game-icon" style="background:rgba(52,211,153,0.1);">🚗</div>
         <div class="game-info">
           <div class="game-name">Forza Horizon 6</div>
           <div class="game-desc">Playground Games takes the open-world racer to a stunning new location.</div>
@@ -615,8 +846,19 @@
             <span class="badge badge-platform">Xbox · PC</span>
             <span class="badge badge-rating-t">E 3+</span>
           </div>
-          <div class="content-warnings"><span>Content:</span> Mild Lyrics · In-Game Purchases · Users Interact</div>
+          <div class="content-warnings"><span>Content:</span> Mild Lyrics · In-Game Purchases · Users Interact
+      </div>
+      <div class="trailer-thumb" onclick="openTrailer('XzBUUZjYlE4')" role="button" tabindex="0" aria-label="Watch Gameplay Teaser">
+        <img src="https://img.youtube.com/vi/XzBUUZjYlE4/mqdefault.jpg" alt="Gameplay Teaser thumbnail" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
+        <span class="trailer-label">▶ Gameplay Teaser</span>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -627,6 +869,37 @@
 <footer>
   Release dates subject to change. Sources: VGC, Dexerto, PC Gamer &mdash; updated April 2026.
 </footer>
+
+
+<!-- ═══ VIDEO MODAL ═══ -->
+<div id="trailer-modal" aria-modal="true" role="dialog">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close video">✕</button>
+    <div class="modal-frame">
+      <iframe id="modal-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openTrailer(videoId) {
+    document.getElementById('modal-iframe').src =
+      'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+    document.getElementById('trailer-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('trailer-modal').classList.remove('open');
+    document.getElementById('modal-iframe').src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('trailer-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
 
 </body>
 </html>
